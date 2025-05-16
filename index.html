@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Configurações básicas do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuração para responsividade -->
+    <title>Nexus</title> <!-- Título da página que aparece na aba do navegador -->
+    <link rel="icon" href="./assets/svg.ico" type="image/x-icon"> <!-- Favicon do site -->
+    
+    <!-- Folha de estilo principal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Importação de fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pré-conexão para carregamento mais rápido -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pré-conexão com crossorigin -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> <!-- Carrega as fontes Cinzel, Outfit e Roboto -->
+    
+    <!-- Importação do Bootstrap para estilos e componentes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Cabeçalho do site -->
+    <header>
+        <nav>
+            <!-- Logo da empresa -->
+            <img src="./assets/LOGO + TIPOGRAFIA 1.png" class="logo">
+            
+            <!-- Menu de navegação principal (visível em desktop) -->
+            <ul>
+                <li><a href="#sobre" class="nav">Sobre nós</a></li> <!-- Link para seção Sobre -->
+                <li><a href="#servicos" class="nav">Serviços</a></li> <!-- Link para seção Serviços -->
+                <li><a href="#projetos" class="nav">Projetos</a></li> <!-- Link para seção Projetos -->
+                <li><a href="#planos" class="nav">Planos</a></li> <!-- Link para seção Planos -->
+                <li><a href="#formulario" class="botao-contato">Contato</a></li> <!-- Botão de contato -->
+            </ul>
+            
+            <!-- Botão do menu hambúrguer (visível apenas em dispositivos móveis) -->
+            <div class="hamburger">
+                <span></span> <!-- Primeira linha do ícone hambúrguer -->
+                <span></span> <!-- Segunda linha do ícone hambúrguer -->
+                <span></span> <!-- Terceira linha do ícone hambúrguer -->
+            </div>
+            </nav>
+            
+            <!-- Menu mobile que aparece quando o hambúrguer é clicado -->
+            <div class="mobile-menu">
+            <ul>
+                <li><a href="#sobre" class="nav">Sobre</a></li> <!-- Link para seção Sobre -->
+                <li><a href="#servicos" class="nav">Serviços</a></li> <!-- Link para seção Serviços -->
+                <li><a href="#projetos" class="nav">Projetos</a></li> <!-- Link para seção Projetos -->
+                <li><a href="#planos" class="nav">Planos</a></li> <!-- Link para seção Planos -->
+                <li><a href="#formulario" class="botao-contato">Contato</a></li> <!-- Botão de contato -->
+            </ul>
+            </div>
+        </nav> 
+
+        <!-- Seção principal do cabeçalho (hero section) -->
+        <div class="home">
+            <div>
+                <!-- Texto animado com efeito de digitação -->
+                <div class="txt-animado">
+                    Desenvolvendo ideias, entregando <span></span> <!-- O span vazio será preenchido via CSS com palavras animadas -->
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam cum illum quaerat nihil laudantium impedit nam, et doloribus suscipit reiciendis.</p>
+                <button href="">Solicite um orçamento</button> <!-- Botão de chamada para ação -->
+            </div>
+            <!-- Imagem principal do cabeçalho -->
+            <img src="./assets/metaverso.png">
+        </div>
+    </header>
+
+    <!-- Seção "Sobre nós" -->
+    <section id="sobre">
+        <!-- Título da seção com barra estilizada -->
+        <h2><span class="barra-sobre">//</span> Sobre nós</h2>
+        <h3>Entenda a essência e os <br>valores da <span>Nexus</span>.</h3>
+
+        <!-- Container do vídeo institucional -->
+        <div class="video">
+            <video poster="./assets/capa-video.png" controls width="960" height="543">
+                <source src="./assets/video.mp4" type="video/mp4"> <!-- Fonte do vídeo -->
+                <track kind="subtitles" srclang="pt-br" src="./assets/video.vtt" label="legendas pt-br"> <!-- Legendas em português -->
+            </video> 
+        </div>
+
+        <!-- Quadros com estatísticas da empresa -->
+        <div class="quadro-mais">
+            <!-- Primeiro quadro estatístico -->
+            <div class="quadro-item">
+                <div class="numero">100+</div> <!-- Número destacado -->
+                <div class="descricao">clientes satisfeitos<br>em todo Brasil</div> <!-- Descrição do número -->
+            </div>
+            <!-- Segundo quadro estatístico -->
+            <div class="quadro-item">
+                <div class="numero">200+</div>
+                <div class="descricao">projetos feitos desde<br>2024</div>
+            </div>
+            <!-- Terceiro quadro estatístico -->
+            <div class="quadro-item">
+                <div class="numero">20+</div>
+                <div class="descricao">marcas renomadas<br>parceiras</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Nossos serviços" -->
+    <section id="servicos">
+        <!-- Título da seção com barra estilizada -->
+        <h2><span class="barra-servicos">//</span> Nossos serviços</h2>
+        <h3><span>Explore</span> nossos serviços <br>e especialidades.</h3>
+
+        <!-- Cards de serviços oferecidos -->
+        <div class="servicos-cards">
+            <!-- Card de desenvolvimento web -->
+            <div>
+                <img src="./assets/web.png"> <!-- Ícone do serviço -->
+                <h4>Desenvolvimento web</h4> <!-- Título do serviço -->
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus eos facere nihil consequuntur aspernatur maxime.</p> <!-- Descrição do serviço -->
+            </div>
+
+            <!-- Card de desenvolvimento mobile -->
+            <div>
+                <img src="./assets/mobile.png">
+                <h4>Desenvolvimento mobile</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus eos facere nihil consequuntur aspernatur maxime.</p>
+            </div>
+
+            <!-- Card de desenvolvimento desktop -->
+            <div>
+                <img src="./assets/desktop.png">
+                <h4>Desenvolvimento desktop</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus eos facere nihil consequuntur aspernatur maxime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Projetos" -->
+    <section id="projetos">
+        <!-- Título da seção com barra estilizada -->
+        <h2><span class="barra-projetos">//</span> Projetos</h2>
+        <h3><span>Resultados</span> que falam por nós: conheça<br> nossos <span>cases de sucesso</span>.</h3>
+        
+        <!-- Galeria de imagens de projetos -->
+        <div class="sites">
+            <img src="./assets/1.png"> <!-- Imagem do primeiro projeto -->
+            <img src="./assets/2.png"> <!-- Imagem do segundo projeto -->
+            <img src="./assets/3.png"> <!-- Imagem do terceiro projeto -->
+        </div>
+    </section>
+
+    <!-- Seção "Nossos planos" -->
+    <section id="planos">
+        <!-- Título da seção com barra estilizada -->
+        <h2><span class="barra-planos">//</span> Nossos planos</h2>
+        <h3>Escolha a <span>solução ideal </span><br>para o <span >seu momento</span>.</h3>
+
+        <!-- Cards dos planos oferecidos -->
+        <div class="plano-cards">
+            <!-- Card do plano Start -->
+            <div class="quadro-plano">
+                <img src="./assets/start.png"> <!-- Ícone do plano -->
+                <h4>Plano Start</h4> <!-- Nome do plano -->
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus eos facere nihil consequuntur aspernatur maxime.</p> <!-- Descrição do plano -->
+                <div class="botao">
+                    <button class="orcamento" href="">Solicitar orçamento</button> <!-- Botão de ação -->
+                    <img src="./assets/seta.png"> <!-- Ícone de seta -->
+                </div>
+            </div>
+
+            <!-- Card do plano Growth -->
+            <div class="quadro-plano">
+                <img src="./assets/growth.png">
+                <h4>Plano Growth</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus eos facere nihil consequuntur aspernatur maxime.</p>
+                <div class="botao">
+                    <button class="orcamento" href="">Solicitar orçamento</button>
+                    <img src="./assets/seta.png">
+                </div>
+            </div>
+
+            <!-- Card do plano Scale -->
+            <div class="quadro-plano">
+                <img src="./assets/scale.png">
+                <h4>Plano Scale</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus eos facere nihil consequuntur aspernatur maxime.</p>
+                <div class="botao">
+                    <button class="orcamento" href="">Solicitar orçamento</button>
+                    <img src="./assets/seta.png">
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela comparativa de recursos dos planos -->
+        <div class="tabela">
+            <table>
+                <!-- Cabeçalho da tabela -->
+                <thead>
+                    <tr>
+                        <th>Recursos</th> <!-- Coluna de recursos -->
+                        <th>Plano Start</th> <!-- Coluna do plano Start -->
+                        <th>Plano Growth</th> <!-- Coluna do plano Growth -->
+                        <th>Plano Scale</th> <!-- Coluna do plano Scale -->
+                    </tr>
+                </thead>
+
+                <!-- Corpo da tabela -->
+                <tbody>
+                    <!-- Linha: Desenvolvimento web -->
+                    <tr>
+                        <td>Desenvolvimento web</td> <!-- Nome do recurso -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Start -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Growth -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Scale -->
+                    <tr>
+                        <!-- Linha: Desenvolvimento mobile -->
+                        <td>Desenvolvimento mobile</td>
+                        <td><img src="./assets/nao.png" class="nao"></td> <!-- Não disponível no plano Start -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Growth -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Scale -->
+                    </tr>
+                    <!-- Linha: Desenvolvimento desktop -->
+                    <tr>
+                        <td>Desenvolvimento desktop</td>
+                        <td><img src="./assets/nao.png" class="nao"></td> <!-- Não disponível no plano Start -->
+                        <td><img src="./assets/nao.png" class="nao"></td> <!-- Não disponível no plano Growth -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Scale -->
+                    </tr>
+                    <!-- Linha: Manutenção mensal gratuita -->
+                    <tr>
+                        <td>Manutenção mensal gratuita</td>
+                        <td><img src="./assets/nao.png" class="nao"></td> <!-- Não disponível no plano Start -->
+                        <td><img src="./assets/nao.png" class="nao"></td> <!-- Não disponível no plano Growth -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Scale -->
+                    </tr>
+                    <!-- Linha: Suporte 24h -->
+                    <tr>
+                        <td>Suporte 24h</td>
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Start -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Growth -->
+                        <td><img src="./assets/sim.png" class="sim"></td> <!-- Disponível no plano Scale -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Seção "Formulário de contato" -->
+    <section id="formulario">
+        <div class="formulario-container">
+            <!-- Texto introdutório do formulário -->
+            <div class="formulario-texto">
+                <h2>Garantir o sucesso da sua empresa leva <span>menos de um minuto</span>.</h2>
+                <p>É simples: preencha o formulário <br>ao lado e nossa equipe entrará <br>em contato com você.</p>
+            </div>
+            
+            <!-- Formulário de contato -->
+            <form>
+                <img src="./assets/LOGO 1.png"> <!-- Logo no topo do formulário -->
+                
+                <!-- Campo de nome -->
+                <div class="form-group">
+                    <label for="nome">Nome completo*</label> <!-- Rótulo do campo -->
+                    <input type="nome" class="form-control" id="nome" required> <!-- Campo de entrada com validação obrigatória -->
+                </div>
+
+                <!-- Campo de e-mail -->
+                <div class="form-group">
+                    <label for="email">E-mail*</label>
+                    <input type="email" class="form-control" id="email" required> <!-- Campo de e-mail com validação obrigatória -->
+                </div>
+
+                <!-- Campo de mensagem -->
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea class="form-control" id="mensagem" rows="3" style="resize: none;"></textarea> <!-- Área de texto sem redimensionamento -->
+                </div>
+
+                <!-- Botão de envio do formulário -->
+                <input type="submit" value="Enviar" class="enviar">
+            </form>
+        </div>
+    </section>
+
+    <!-- Rodapé do site -->
+    <footer>
+        <img src="./assets/LOGO + TIPOGRAFIA 2.png"> <!-- Logo no rodapé -->
+        
+        <!-- Links de navegação interna -->
+        <ul class="nav-footer">
+            <li><a href="#sobre">Sobre nós</a></li> <!-- Link para seção Sobre -->
+            <li><a href="#servicos">Serviços</a></li> <!-- Link para seção Serviços -->
+            <li><a href="#projetos">Projetos</a></li> <!-- Link para seção Projetos -->
+            <li><a href="#planos">Planos</a></li> <!-- Link para seção Planos -->
+        </ul>
+        
+        <!-- Links externos -->
+        <ul class="links-ext">
+            <li><a href="https://policies.google.com/terms?hl=pt-BR" target="_blank">Termos de Serviço e Contrato</a></li> <!-- Link para termos de serviço (abre em nova aba) -->
+            <li><a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank">Políticas de Privacidade</a></li> <!-- Link para políticas de privacidade (abre em nova aba) -->
+            <li><a href="https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq" target="_blank">FAQ</a></li> <!-- Link para perguntas frequentes (abre em nova aba) -->
+        </ul>
+        
+        <!-- Informações de copyright -->
+        <p>&copy; 2025 Nexus. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+
+<!-- Script para controlar o menu hambúrguer -->
+<script>
+    // JavaScript para controle do menu hambúrguer
+    document.addEventListener('DOMContentLoaded', function() {
+      // Seleciona os elementos necessários do DOM
+      const hamburger = document.querySelector('.hamburger'); // Botão hambúrguer
+      const mobileMenu = document.querySelector('.mobile-menu'); // Menu mobile
+      const mobileMenuLinks = document.querySelectorAll('.mobile-menu a'); // Links do menu mobile
+      
+      // Adiciona evento de clique ao botão hambúrguer
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open'); // Alterna a classe 'open' no botão (para animação)
+        mobileMenu.classList.toggle('open'); // Alterna a classe 'open' no menu (para exibição)
+        document.body.classList.toggle('menu-open'); // Alterna a classe no body (para bloquear rolagem)
+      });
+      
+      // Fecha o menu quando um link é clicado
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('open'); // Remove a classe 'open' do botão
+          mobileMenu.classList.remove('open'); // Remove a classe 'open' do menu
+          document.body.classList.remove('menu-open'); // Remove a classe do body
+        });
+      });
+    });
+</script>
+</body>
+</html>

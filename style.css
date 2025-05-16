@@ -1,0 +1,1279 @@
+/* Reset global para remover margens e paddings padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding e borda sejam incluídos no tamanho total do elemento */
+  font-family: outfit, sans-serif; /* Define a fonte padrão para todo o site */
+}
+
+/* Estilização do cabeçalho */
+header {
+  padding: 40px 5%; /* Padding padrão para dispositivos móveis */
+  min-height: 100vh; /* Altura mínima de 100% da altura da viewport */
+  background-color: #000211; /* Cor de fundo escura */
+}
+
+/* Media queries para ajustar o padding do cabeçalho em diferentes tamanhos de tela */
+@media (min-width: 768px) {
+  header {
+    padding: 40px 8%; /* Aumenta o padding lateral em tablets */
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    padding: 40px 150px; /* Padding fixo para desktops */
+  }
+}
+
+@media (min-width: 2560px) {
+  header {
+    padding: 40px calc(50% - 1130px); /* Centraliza o conteúdo em telas ultrawide */
+  }
+}
+
+/* Estilização da barra de navegação */
+nav {
+  display: flex;
+  align-items: center; /* Alinha itens verticalmente */
+  justify-content: space-between; /* Distribui espaço entre logo e menu */
+}
+
+/* Estilo do logotipo */
+.logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain; /* Mantém a proporção da imagem */
+}
+
+/* Lista de navegação - escondida por padrão em dispositivos móveis */
+nav ul {
+  align-items: center;
+  display: none; /* Oculto em dispositivos móveis */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 80px; /* Espaçamento entre itens do menu */
+  margin-left: auto; /* Empurra o menu para a direita */
+}
+
+/* Exibe o menu de navegação em desktops */
+@media (min-width: 1024px) {
+  nav ul {
+    display: flex; /* Mostra o menu em telas maiores */
+  }
+}
+
+/* Estilo dos links de navegação */
+.nav {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 18px;
+  transition: color 0.25s; /* Transição suave para efeito hover */
+}
+
+/* Efeito hover nos links de navegação */
+.nav:hover {
+  color: #8436ff; /* Cor roxa ao passar o mouse */
+}
+
+/* Botão de contato - escondido em dispositivos móveis */
+.botao-contato {
+  display: none; /* Oculto em dispositivos móveis */
+  background-color: #8436ff;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out; /* Animação ao passar o mouse */
+  text-decoration: none;
+}
+
+/* Exibe o botão de contato em desktops */
+@media (min-width: 1024px) {
+  .botao-contato {
+    display: inline-block;
+  }
+}
+
+/* Efeito hover no botão de contato */
+.botao-contato:hover {
+  transform: scale(1.08); /* Aumenta ligeiramente o tamanho */
+}
+
+/* Estilização do menu hambúrguer para dispositivos móveis */
+.hamburger {
+  display: block; /* Visível por padrão em dispositivos móveis */
+  cursor: pointer;
+  width: 30px;
+  height: 21px;
+  position: relative;
+  z-index: 100; /* Garante que fique acima do menu mobile */
+}
+
+/* Oculta o menu hambúrguer em desktops */
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Estilo das linhas do menu hambúrguer */
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #fff; /* Cor branca para as linhas */
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out; /* Transição suave para animação */
+}
+
+/* Posicionamento da primeira linha do hambúrguer */
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+/* Posicionamento da segunda linha do hambúrguer */
+.hamburger span:nth-child(2) {
+  top: 9px;
+}
+
+/* Posicionamento da terceira linha do hambúrguer */
+.hamburger span:nth-child(3) {
+  top: 18px;
+}
+
+/* Animação da primeira linha quando o menu está aberto (forma um X) */
+.hamburger.open span:nth-child(1) {
+  top: 9px;
+  transform: rotate(135deg);
+}
+
+/* Animação da segunda linha quando o menu está aberto (desaparece) */
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+/* Animação da terceira linha quando o menu está aberto (forma um X) */
+.hamburger.open span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-135deg);
+}
+
+/* Estilização do menu mobile */
+.mobile-menu {
+  position: fixed; /* Fixo na tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000211; /* Mesmo fundo do header */
+  z-index: 99; /* Abaixo do hambúrguer, mas acima do resto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%); /* Começa fora da tela */
+  transition: transform 0.3s ease-in-out; /* Animação de deslize */
+}
+
+/* Estilo do menu mobile quando está aberto */
+.mobile-menu.open {
+  transform: translateX(0); /* Desliza para dentro da tela */
+}
+
+/* Lista de links no menu mobile */
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Espaçamento maior entre itens */
+  list-style: none;
+  text-align: center;
+}
+
+/* Links de navegação no menu mobile */
+.mobile-menu .nav {
+  font-size: 24px; /* Fonte maior para facilitar o toque */
+}
+
+/* Botão de contato no menu mobile */
+.mobile-menu .botao-contato {
+  display: inline-block; /* Sempre visível no menu mobile */
+  margin-top: 30px;
+}
+
+/* Fim da navegação */
+
+/* Estilização da seção home */
+.home {
+  display: flex;
+  flex-direction: column; /* Empilha elementos em dispositivos móveis */
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  text-align: center; /* Centraliza texto em dispositivos móveis */
+}
+
+/* Layout da seção home em desktops */
+@media (min-width: 1024px) {
+  .home {
+    flex-direction: row; /* Coloca elementos lado a lado */
+    justify-content: space-between;
+    align-items: center;
+    text-align: left; /* Alinha texto à esquerda */
+    height: calc(100vh - 100px);
+  }
+}
+
+/* Estilização da animação de texto */
+.txt-animado {
+  color: #fff;
+  font-weight: 600;
+  font-size: 36px; /* Tamanho base para dispositivos móveis */
+}
+
+/* Ajuste do tamanho da fonte em tablets */
+@media (min-width: 768px) {
+  .txt-animado {
+    font-size: 45px;
+  }
+}
+
+/* Ajuste do tamanho da fonte em desktops */
+@media (min-width: 1024px) {
+  .txt-animado {
+    font-size: 55px;
+  }
+}
+
+/* Estilo do span dentro do texto animado */
+.txt-animado span {
+  position: relative;
+}
+
+/* Conteúdo antes do span - palavras que mudam */
+.txt-animado span::before {
+  content: "";
+  color: #8436ff; /* Cor roxa para as palavras */
+  animation: palavras 20s infinite; /* Animação que troca as palavras */
+}
+
+/* Efeito de digitação após o span */
+.txt-animado span::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  border-left: 1px solid #fff; /* Cursor de digitação */
+  right: -5px;
+  animation: cursor 0.8s infinite, digita 20s steps(15) infinite; /* Animações combinadas */
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  background-color: #000211; /* Fundo para cobrir o texto */
+}
+
+/* Keyframes da animação de digitação */
+@keyframes digita {
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0; /* Texto visível */
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 10px); /* Texto coberto */
+  }
+}
+
+/* Keyframes da animação do cursor */
+@keyframes cursor {
+  0% {
+    border-left: 2px solid #000211; /* Pisca o cursor */
+  }
+}
+
+/* Keyframes da animação de troca de palavras */
+@keyframes palavras {
+  0%,
+  20% {
+    content: "futuro"; /* Primeira palavra */
+  }
+
+  21%,
+  40% {
+    content: "inovação"; /* Segunda palavra */
+  }
+
+  41%,
+  60% {
+    content: "disrupção"; /* Terceira palavra */
+  }
+
+  61%,
+  80% {
+    content: "solução"; /* Quarta palavra */
+  }
+
+  81%,
+  100% {
+    content: "conexão"; /* Quinta palavra */
+  }
+}
+/* Fim da animação */
+
+/* Estilização padrão das seções */
+section {
+  padding: 50px 5%; /* Padding padrão para dispositivos móveis */
+}
+
+/* Ajuste do padding das seções em tablets */
+@media (min-width: 768px) {
+  section {
+    padding: 50px 8%;
+  }
+}
+
+/* Ajuste do padding das seções em desktops */
+@media (min-width: 1200px) {
+  section {
+    padding: 50px 150px;
+  }
+}
+
+/* Ajuste do padding das seções em telas ultrawide */
+@media (min-width: 2560px) {
+  section {
+    padding: 50px calc(50% - 1130px); /* Centraliza o conteúdo */
+  }
+}
+
+/* Estilo do parágrafo na seção home */
+.home p {
+  color: #fff;
+  font-weight: 300;
+  padding: 35px 0 35px 0;
+}
+
+/* Estilo do botão na seção home */
+.home button {
+  background-color: #8436ff;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out; /* Transição suave */
+}
+
+/* Efeito hover no botão da seção home */
+.home button:hover {
+  background-color: #5422a5; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Estilo da imagem na seção home */
+.home img {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 40px; /* Espaço acima da imagem em dispositivos móveis */
+}
+
+/* Ajuste da imagem na seção home em desktops */
+@media (min-width: 1024px) {
+  .home img {
+    width: 45%; /* Ocupa menos espaço em telas grandes */
+    max-width: 85vh;
+    margin-top: 0; /* Remove o espaço acima */
+  }
+}
+
+/* Estilização da seção sobre */
+#sobre h2 {
+  color: #000;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* Estilo da barra na seção sobre */
+.barra-sobre {
+  color: #8436ff;
+  font-weight: 700;
+}
+
+/* Estilo do título h3 na seção sobre */
+#sobre h3 {
+  color: #000;
+  font-weight: 700;
+  font-size: 30px; /* Tamanho base para dispositivos móveis */
+  line-height: 36px;
+}
+
+/* Ajuste do título h3 em tablets e desktops */
+@media (min-width: 768px) {
+  #sobre h3 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+/* Estilo do span na seção sobre */
+#sobre span {
+  color: #8436ff; /* Destaque em roxo */
+}
+
+/* Estilo do vídeo */
+video {
+  border-radius: 30px;
+  border: solid 3px #8436ff;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Container do vídeo */
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0 50px 0;
+}
+
+/* Container dos quadros informativos */
+.quadro-mais {
+  display: flex;
+  flex-direction: column; /* Empilha em dispositivos móveis */
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Layout dos quadros em tablets e desktops */
+@media (min-width: 768px) {
+  .quadro-mais {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* Estilo de cada quadro informativo */
+.quadro-item {
+  border: 3px solid #8436ff;
+  border-radius: 30px;
+  padding: 12px 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px); /* Efeito de vidro fosco */
+  -webkit-backdrop-filter: blur(4px);
+  transition: 0.5s; /* Transição suave para o hover */
+  position: relative;
+  z-index: 1;
+}
+
+/* Efeito hover nos quadros em dispositivos móveis e tablets */
+.quadro-item:hover {
+  transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+  z-index: 10; /* Traz para frente */
+}
+
+/* Efeito hover nos quadros em desktops */
+@media (min-width: 1024px) {
+  .quadro-item:hover {
+    transform: scale(1.2); /* Aumenta mais em telas grandes */
+  }
+}
+
+/* Estilo do número nos quadros */
+.numero {
+  margin: -10px;
+  font-size: 90px;
+  font-weight: 800;
+  color: #8436ff;
+}
+
+/* Estilo da descrição nos quadros */
+.descricao {
+  font-size: 20px;
+  color: #000;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+/* Estilização da seção de serviços */
+#servicos {
+  background: url(./assets/bg2.png) no-repeat center center / cover; /* Imagem de fundo */
+}
+
+/* Estilo do título h2 na seção de serviços */
+#servicos h2 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* Estilo da barra na seção de serviços */
+.barra-servicos {
+  color: #ffa400; /* Cor laranja */
+  font-weight: 700;
+}
+
+/* Estilo do título h3 na seção de serviços */
+#servicos h3 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 30px; /* Tamanho base para dispositivos móveis */
+  line-height: 36px;
+  margin-bottom: 50px;
+}
+
+/* Ajuste do título h3 em tablets e desktops */
+@media (min-width: 768px) {
+  #servicos h3 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+/* Estilo do span na seção de serviços */
+#servicos span {
+  color: #ffa400; /* Destaque em laranja */
+}
+
+/* Container dos cards de serviços */
+.servicos-cards {
+  display: flex;
+  flex-direction: column; /* Empilha em dispositivos móveis */
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Layout dos cards em tablets */
+@media (min-width: 768px) {
+  .servicos-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* Layout dos cards em desktops */
+@media (min-width: 1200px) {
+  .servicos-cards {
+    justify-content: space-between; /* Distribui espaço entre os cards */
+  }
+}
+
+/* Estilo de cada card de serviço */
+.servicos-cards div {
+  background: #fff;
+  border-radius: 30px;
+  padding: 30px;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  min-height: 280px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.4s ease-in-out; /* Transição suave para o hover */
+}
+
+/* Efeito hover nos cards em dispositivos móveis e tablets */
+.servicos-cards div:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+}
+
+/* Efeito hover nos cards em desktops */
+@media (min-width: 1024px) {
+  .servicos-cards div:hover {
+    transform: scale(1.08); /* Aumenta mais em telas grandes */
+  }
+}
+
+/* Estilo da imagem nos cards de serviço */
+.servicos-cards img {
+  width: 64px;
+  margin-bottom: 20px;
+}
+
+/* Estilo do título h4 nos cards de serviço */
+.servicos-cards h4 {
+  font-size: 28px; /* Tamanho base para dispositivos móveis */
+  font-weight: 800;
+  color: #8436ff;
+  margin-bottom: 12px;
+  line-height: 30px;
+}
+
+/* Ajuste do título h4 em tablets e desktops */
+@media (min-width: 768px) {
+  .servicos-cards h4 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+
+/* Estilo do parágrafo nos cards de serviço */
+.servicos-cards p {
+  font-size: 15px;
+  color: #000;
+  line-height: 18px;
+}
+
+/* Fim da seção de serviços */
+
+/* Estilização da seção de projetos */
+#projetos h2 {
+  color: #000;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* Estilo da barra na seção de projetos */
+.barra-projetos {
+  color: #8436ff;
+  font-weight: 700;
+}
+
+/* Estilo do título h3 na seção de projetos */
+#projetos h3 {
+  color: #000;
+  font-weight: 700;
+  font-size: 30px; /* Tamanho base para dispositivos móveis */
+  line-height: 36px;
+  margin-bottom: 50px;
+}
+
+/* Ajuste do título h3 em tablets e desktops */
+@media (min-width: 768px) {
+  #projetos h3 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+/* Estilo do span na seção de projetos */
+#projetos span {
+  color: #8436ff; /* Destaque em roxo */
+}
+
+/* Container das imagens de sites */
+#projetos .sites {
+  display: flex;
+  flex-direction: column; /* Empilha em dispositivos móveis */
+  align-items: center;
+  gap: 30px;
+}
+
+/* Layout das imagens em tablets */
+@media (min-width: 768px) {
+  #projetos .sites {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* Layout das imagens em desktops */
+@media (min-width: 1200px) {
+  #projetos .sites {
+    justify-content: space-between; /* Distribui espaço entre as imagens */
+  }
+}
+
+/* Estilo das imagens de projetos */
+#projetos .sites img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  aspect-ratio: 380 / 540; /* Mantém proporção da imagem */
+  object-fit: cover;
+  border-radius: 20px;
+  background-color: #ddd;
+  filter: grayscale(100%); /* Começa em preto e branco */
+  transition: filter 0.4s ease, transform 0.4s ease; /* Transição suave */
+}
+
+/* Efeito hover nas imagens em dispositivos móveis e tablets */
+#projetos .sites img:hover {
+  filter: grayscale(0%); /* Remove o filtro preto e branco */
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+  z-index: 2; /* Traz para frente */
+}
+
+/* Efeito hover nas imagens em desktops */
+@media (min-width: 1024px) {
+  #projetos .sites img:hover {
+    transform: scale(1.08); /* Aumenta mais em telas grandes */
+  }
+}
+
+/* Fim da seção de projetos */
+
+/* Estilização da seção de planos */
+#planos {
+  background: url(./assets/bg2.png) no-repeat center center / cover; /* Imagem de fundo */
+}
+
+/* Estilo do título h2 na seção de planos */
+#planos h2 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* Estilo da barra na seção de planos */
+.barra-planos {
+  color: #ffa400; /* Cor laranja */
+  font-weight: 700;
+}
+
+/* Estilo do título h3 na seção de planos */
+#planos h3 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 30px; /* Tamanho base para dispositivos móveis */
+  line-height: 36px;
+  margin-bottom: 50px;
+}
+
+/* Ajuste do título h3 em tablets e desktops */
+@media (min-width: 768px) {
+  #planos h3 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+/* Estilo do span na seção de planos */
+#planos span {
+  color: #ffa400; /* Destaque em laranja */
+}
+
+/* Container dos cards de planos */
+.plano-cards {
+  display: flex;
+  flex-direction: column; /* Empilha em dispositivos móveis */
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Layout dos cards em tablets */
+@media (min-width: 768px) {
+  .plano-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* Layout dos cards em desktops */
+@media (min-width: 1200px) {
+  .plano-cards {
+    justify-content: space-between; /* Distribui espaço entre os cards */
+  }
+}
+
+/* Estilo de cada card de plano */
+.quadro-plano {
+  background: #fff;
+  border-radius: 30px;
+  padding: 30px;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  min-height: 280px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.4s ease-in-out; /* Transição suave para o hover */
+}
+
+/* Efeito hover nos cards de plano em dispositivos móveis e tablets */
+.quadro-plano:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+}
+
+/* Efeito hover nos cards de plano em desktops */
+@media (min-width: 1024px) {
+  .quadro-plano:hover {
+    transform: scale(1.08); /* Aumenta mais em telas grandes */
+  }
+}
+
+/* Estilo da imagem nos cards de plano */
+.quadro-plano img {
+  width: 64px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 16px 0 0;
+}
+
+/* Estilo do título h4 nos cards de plano */
+.quadro-plano h4 {
+  font-size: 28px; /* Tamanho base para dispositivos móveis */
+  font-weight: 800;
+  color: #8436ff;
+  line-height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Ajuste do título h4 em tablets e desktops */
+@media (min-width: 768px) {
+  .quadro-plano h4 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+
+/* Estilo do parágrafo nos cards de plano */
+.quadro-plano p {
+  font-size: 15px;
+  color: #000;
+  line-height: 18px;
+  margin-top: 28px;
+}
+
+/* Container do botão */
+.botao {
+  margin-top: 28px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilo do botão */
+.botao button {
+  background-color: #8436ff;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 50px 8px 20px; /* Espaço para o ícone à direita */
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out; /* Transição suave */
+}
+
+/* Estilo da imagem dentro do botão */
+.botao img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-45%); /* Centraliza verticalmente */
+  width: 24px;
+  height: 24px;
+  pointer-events: none; /* Evita que a imagem interfira nos cliques */
+}
+
+/* Efeito hover no botão */
+.botao button:hover {
+  background-color: #5422a5; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Container da tabela com rolagem horizontal em dispositivos móveis */
+.tabela {
+  overflow-x: auto; /* Permite rolagem horizontal */
+  margin: 0 -5%;
+  padding: 0 5%;
+}
+
+/* Remove margens e padding em tablets e desktops */
+@media (min-width: 768px) {
+  .tabela {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Estilo da tabela */
+.tabela table {
+  width: 100%;
+  min-width: 700px; /* Garante largura mínima para rolagem */
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 3px solid #8436ff;
+  border-radius: 30px;
+  overflow: hidden; /* Mantém as bordas arredondadas */
+}
+
+/* Estilo das células da tabela */
+.tabela th,
+.tabela td {
+  padding: 16px 24px;
+  text-align: center;
+  border-right: 3px solid #8436ff;
+  border-bottom: 3px solid #8436ff;
+}
+
+/* Estilo do cabeçalho da tabela */
+.tabela thead th {
+  background: #fff;
+  color: #8436ff;
+  font-size: 18px; /* Tamanho base para dispositivos móveis */
+  font-weight: 600;
+}
+
+/* Ajuste do tamanho da fonte do cabeçalho em tablets e desktops */
+@media (min-width: 768px) {
+  .tabela thead th {
+    font-size: 22px;
+  }
+}
+
+/* Estilo da primeira coluna do corpo da tabela */
+.tabela tbody td:first-child {
+  text-align: left;
+  color: #fff;
+  font-size: 16px; /* Tamanho base para dispositivos móveis */
+  font-weight: 500;
+}
+
+/* Ajuste do tamanho da fonte da primeira coluna em tablets e desktops */
+@media (min-width: 768px) {
+  .tabela tbody td:first-child {
+    font-size: 20px;
+  }
+}
+
+/* Remove a borda direita da última coluna */
+.tabela th:last-child,
+.tabela td:last-child {
+  border-right: none;
+}
+
+/* Remove a borda inferior da última linha */
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Arredonda o canto superior esquerdo da tabela */
+.tabela thead tr:first-child th:first-child {
+  border-top-left-radius: 30px;
+}
+
+/* Arredonda o canto superior direito da tabela */
+.tabela thead tr:first-child th:last-child {
+  border-top-right-radius: 30px;
+}
+
+/* Arredonda o canto inferior esquerdo da tabela */
+.tabela tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 30px;
+}
+
+/* Arredonda o canto inferior direito da tabela */
+.tabela tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 30px;
+}
+
+/* Estilo do ícone de confirmação na tabela */
+.tabela img.sim {
+  width: 24px;
+  height: 24px;
+}
+
+/* Estilo do ícone de negação na tabela */
+.tabela img.nao {
+  width: 30px;
+  height: 30px;
+}
+
+/* Estilização da seção de formulário */
+#formulario {
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 5%; /* Padding padrão para dispositivos móveis */
+  position: relative;
+}
+
+/* Ajuste do padding em tablets */
+@media (min-width: 768px) {
+  #formulario {
+    padding: 40px 8%;
+  }
+}
+
+/* Ajuste do padding em desktops */
+@media (min-width: 1200px) {
+  #formulario {
+    padding: 40px 150px;
+  }
+}
+
+/* Ajuste do padding em telas ultrawide */
+@media (min-width: 2560px) {
+  #formulario {
+    padding: 40px calc(50% - 1130px); /* Centraliza o conteúdo */
+  }
+}
+
+/* Container do formulário */
+.formulario-container {
+  display: flex;
+  flex-direction: column; /* Empilha em dispositivos móveis */
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Layout do container em desktops */
+@media (min-width: 1024px) {
+  .formulario-container {
+    flex-direction: row; /* Coloca elementos lado a lado */
+    gap: 60px;
+  }
+}
+
+/* Container do texto do formulário */
+.formulario-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza em dispositivos móveis */
+  text-align: center;
+}
+
+/* Alinhamento do texto em desktops */
+@media (min-width: 1024px) {
+  .formulario-texto {
+    align-items: flex-start; /* Alinha à esquerda */
+    text-align: left;
+  }
+}
+
+/* Estilo do título h2 na seção de formulário */
+#formulario h2 {
+  font-size: 36px; /* Tamanho base para dispositivos móveis */
+  line-height: 40px;
+  margin: 0;
+}
+
+/* Ajuste do título h2 em tablets e desktops */
+@media (min-width: 768px) {
+  #formulario h2 {
+    font-size: 54px;
+    line-height: 54px;
+  }
+}
+
+/* Estilo do span na seção de formulário */
+#formulario span {
+  color: #8436ff; /* Destaque em roxo */
+  font-weight: 900;
+}
+
+/* Estilo do parágrafo na seção de formulário */
+#formulario p {
+  font-size: 18px; /* Tamanho base para dispositivos móveis */
+  line-height: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+/* Ajuste do parágrafo em tablets e desktops */
+@media (min-width: 768px) {
+  #formulario p {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+
+/* Estilo do formulário */
+form {
+  border: #ffffff solid 1px;
+  border-radius: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px; /* Padding padrão para dispositivos móveis */
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+}
+
+/* Ajuste do padding do formulário em tablets e desktops */
+@media (min-width: 768px) {
+  form {
+    padding: 40px;
+  }
+}
+
+/* Posicionamento do formulário em desktops */
+@media (min-width: 1024px) {
+  form {
+    order: -1; /* Coloca o formulário à esquerda do texto */
+  }
+}
+
+/* Estilo da imagem no formulário */
+form img {
+  width: 50px;
+  padding-bottom: 20px;
+}
+
+/* Estilo dos grupos de campos no formulário */
+.form-group {
+  font-size: 18px; /* Tamanho base para dispositivos móveis */
+  margin-bottom: 20px;
+  color: #8d8d8d;
+}
+
+/* Ajuste do tamanho da fonte em tablets e desktops */
+@media (min-width: 768px) {
+  .form-group {
+    font-size: 20px;
+  }
+}
+
+/* Estilo das labels */
+label {
+  padding: 7px;
+}
+
+/* Estilo do botão de enviar */
+.enviar {
+  background-color: #8436ff;
+  border: none;
+  font-size: 18px; /* Tamanho base para dispositivos móveis */
+  font-weight: 500;
+  border-radius: 30px;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out; /* Transição suave */
+}
+
+/* Ajuste do tamanho da fonte do botão em tablets e desktops */
+@media (min-width: 768px) {
+  .enviar {
+    font-size: 20px;
+  }
+}
+
+/* Efeito hover no botão de enviar */
+.enviar:hover {
+  background-color: #5422a5; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Estilização do rodapé */
+footer {
+  background-color: #000211;
+  color: #fff;
+  padding: 40px 5%; /* Padding padrão para dispositivos móveis */
+  display: flex;
+  flex-direction: column; /* Empilha em dispositivos móveis */
+  align-items: center;
+  gap: 30px;
+  font-size: 18px;
+}
+
+/* Layout do rodapé em tablets */
+@media (min-width: 768px) {
+  footer {
+    padding: 40px 8%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+/* Ajuste do padding do rodapé em desktops */
+@media (min-width: 1200px) {
+  footer {
+    padding: 40px 150px;
+  }
+}
+
+/* Ajuste do padding do rodapé em telas ultrawide */
+@media (min-width: 2560px) {
+  footer {
+    padding: 40px calc(50% - 1130px); /* Centraliza o conteúdo */
+  }
+}
+
+/* Estilo do logotipo no rodapé */
+footer img {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Estilo das listas de navegação no rodapé */
+.nav-footer,
+.links-ext {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Centraliza em dispositivos móveis */
+}
+
+/* Alinhamento das listas em tablets e desktops */
+@media (min-width: 768px) {
+  .nav-footer,
+  .links-ext {
+    text-align: left;
+  }
+}
+
+/* Estilo dos itens das listas no rodapé */
+.nav-footer li,
+.links-ext li {
+  margin-bottom: 5px;
+}
+
+/* Estilo dos links no rodapé */
+.nav-footer a,
+.links-ext a {
+  color: #8436ff;
+  text-decoration: none;
+  transition: color 0.25s; /* Transição suave */
+  font-weight: 300;
+  font-size: 15px;
+}
+
+/* Efeito hover nos links do rodapé */
+.nav-footer a:hover,
+.links-ext a:hover {
+  color: #5422a5; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Estilo do texto de copyright no rodapé */
+footer p:last-of-type {
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 12px;
+  color: #fff;
+}
